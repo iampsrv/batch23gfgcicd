@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent { label 'slavenode' }
+    // agent any
     environment {
         IMAGE_NAME = 'psrv3/devopsbatch29'
         IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
