@@ -13,12 +13,12 @@ pipeline {
                 echo 'checkout the code'
             }
         }
-        stage('Setup the env') {
-            steps {
-                sh "pip install --upgrade flask --break-system-packages"
-                echo 'Setup the env'
-            }
-        }
+        // stage('Setup the env') {
+        //     steps {
+        //         sh "pip install --upgrade flask --break-system-packages"
+        //         echo 'Setup the env'
+        //     }
+        // }
         stage('Test') {
             steps {
                 sh "pytest"
