@@ -28,6 +28,8 @@ pipeline {
         }    
         stage('Login to Dockerhub') {
             steps {
+                withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                sh 'docker login -u psrv3 -p ${dockerhubpwd}'}
                 echo 'Login successfully'
             }
         }
