@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        IMAGE_NAME = 'psrv3/devopsbatch29'
+        IMAGE_TAG = "${IMAGE_NAME}:${env.BUILD_NUMBER}"
+    }   
 
     stages {
         stage('Checkout') {
@@ -22,7 +26,7 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                sh "docker build -t psrv3/devopsbatch29 ."
+                sh "docker build -t ${IMAGE_TAG} ."
                 echo 'Docker image build successfully'
             }
         }    
@@ -35,7 +39,7 @@ pipeline {
         }
         stage('Push to Dockerhub') {
             steps {
-                sh "docker push psrv3/devopsbatch29"
+                sh "docker push ${IMAGE_TAG}"
                 echo 'Docker image push successfully'
             }
         }  
