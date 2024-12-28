@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                sh "docker build -t psrv3/myflaskapp"
+                sh "docker build -t psrv3/devopsbatch29 ."
                 echo 'Docker image build successfully'
             }
         }    
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Push to Dockerhub') {
             steps {
-                sh "docker push psrv3/myflaskapp"
+                sh "docker push psrv3/devopsbatch29"
                 echo 'Docker image push successfully'
             }
         }  
