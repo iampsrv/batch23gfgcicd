@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Deploy latest docker image') {
             steps {
-                sh "docker run -it -p 5000:5000 ${IMAGE_TAG}"
+                sh "docker run -d -p 5000:5000 ${IMAGE_TAG}"
                 echo 'Docker image ran successfully'
             }
         }    
